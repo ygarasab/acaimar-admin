@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:7071/api'
+const API_KEY = import.meta.env.VITE_API_KEY
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -9,13 +10,22 @@ const api = axios.create({
   }
 })
 
-// Request interceptor to add auth token
+// Request interceptor to add auth token and API key
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('auth_token')
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
+    
+    // Add API_KEY as query parameter
+    if (API_KEY) {
+      config.params = {
+        ...config.params,
+        key: API_KEY
+      }
+    }
+    
     return config
   },
   (error) => {

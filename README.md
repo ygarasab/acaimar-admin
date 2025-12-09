@@ -75,7 +75,11 @@ Create a `.env` file for environment variables:
 
 ```env
 VITE_API_URL=http://localhost:7071/api
+VITE_API_BASE_URL=http://localhost:7071
+VITE_API_KEY=your-api-key-here
 ```
+
+**Note**: The `VITE_API_KEY` will be automatically added as a `key` query parameter to all API requests.
 
 ## 📦 Technologies
 
