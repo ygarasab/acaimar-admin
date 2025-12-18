@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-console.log(import.meta.env)
+fetch(__API_URL__)
+console.log(__API_URL__)
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7073/api'
+const API_BASE_URL = __API_URL__ || 'http://localhost:7073/api'
 const API_KEY = import.meta.env.VITE_API_KEY
 
 const api = axios.create({
