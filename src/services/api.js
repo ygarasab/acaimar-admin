@@ -3,7 +3,7 @@ import axios from 'axios'
 fetch(__API_URL__)
 console.log(__API_URL__)
 
-const API_BASE_URL = __API_URL__ || 'http://localhost:7073/api'
+const API_BASE_URL = __API_URL__ || 'https://acaimar-c7b2h7dpf6ahckc0.brazilsouth-01.azurewebsites.net/api'
 const API_KEY = import.meta.env.VITE_API_KEY
 
 const api = axios.create({
